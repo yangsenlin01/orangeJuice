@@ -1,7 +1,9 @@
 package com.theboyaply.orangeJuice;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author theboyaply
@@ -10,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  */
 @SpringBootApplication
+@ComponentScan(value = "com.theboyaply.orangeJuice")
+@MapperScan("com.theboyaply.orangeJuice.**.mapper")
 public class OrangeJuiceApplication {
 
     public static void main(String[] args) {

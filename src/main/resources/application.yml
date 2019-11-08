@@ -1,5 +1,26 @@
 server:
   port: 8080
 
-my:
-  hello: tom
+# mybatis-plus
+mybatis-plus:
+  # xml路径
+  mapper-locations: classpath:com/theboyaply/orangeJuice/**/mapper/*.xml
+  # 实体类包路径
+  type-aliases-package: com.theboyaply.orangeJuice.**.domain
+  configuration:
+    # 自动驼峰转下划线
+    map-underscore-to-camel-case: true
+    # 关闭缓存
+    cache-enabled: false
+  global-config:
+    id-type: 2
+# mysql
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/orangeJuice?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
+    username: orange_juice
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#logging:
+  #level: debug
+  #config: classpath:log/logback-dev.xml

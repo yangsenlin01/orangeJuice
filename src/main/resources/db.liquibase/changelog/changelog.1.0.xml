@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <!--<property name="now" value="sysdate" dbms="oracle"/>-->
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="amount" value="decimal(20,2)"/>
+
+    <changeSet id="oj20191108001" author="tba">
+        <createTable tableName="test">
+            <column name="id" type="bigint" remarks="主键ID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="test_name" type="varchar(255)" remarks="测试名称"/>
+            <column name="test_number" type="int" remarks="测试数字"/>
+            <column name="test_date" type="timestamp" defaultValue="${now}" remarks="测试日期"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

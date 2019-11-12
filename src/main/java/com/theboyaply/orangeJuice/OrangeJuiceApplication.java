@@ -1,5 +1,8 @@
 package com.theboyaply.orangeJuice;
 
+import ma.glasnost.orika.MapperFacade;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
+import ma.glasnost.orika.impl.MapperFacadeImpl;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -42,5 +45,10 @@ public class OrangeJuiceApplication {
         // 此时是可以使用明文密码的，
         // 在 5.0 之后默认实现类改为 DelegatingPasswordEncoder 此时密码必须以加密形式存储。
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public MapperFacade mapperFacade() {
+        return new DefaultMapperFactory.Builder().build().getMapperFacade();
     }
 }

@@ -1,13 +1,10 @@
 package com.theboyaply.orangeJuice.config.service;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.admin.domain.TbPermission;
 import com.theboyaply.orangeJuice.admin.domain.TbUser;
-import com.theboyaply.orangeJuice.admin.service.TbPermissionService;
 import com.theboyaply.orangeJuice.admin.service.TbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,21 +27,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private TbUserService tbUserService;
 
-    @Autowired
-    private TbPermissionService tbPermissionService;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         TbUser tbUser = tbUserService.selectOne(new EntityWrapper<TbUser>()
                 .eq("username", username));
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
-        if (tbUser != null) {
-            List<TbPermission> tbPermissionList = tbPermissionService.selectByUserId(tbUser.getId());
-            tbPermissionList.forEach(tbPermission -> {
-                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(tbPermission.getEnname());
-                grantedAuthorityList.add(grantedAuthority);
-            });
-        } else {
+        if (tbUser == null) {
             throw new UsernameNotFoundException("账号密码错误");
         }
         return new User(tbUser.getUsername(), tbUser.getPassword(), grantedAuthorityList);

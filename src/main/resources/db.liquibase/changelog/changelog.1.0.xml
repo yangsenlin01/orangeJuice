@@ -17,4 +17,9 @@
             <column name="test_date" type="timestamp" defaultValue="${now}" remarks="测试日期"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="oj20191112002" author="tba">
+        <comment>初始化RBAC角色控制模型相关表</comment>
+        <sqlFile path="classpath:db.liquibase/sql/rbac.sql" encoding="UTF-8"/>
+    </changeSet>
 </databaseChangeLog>

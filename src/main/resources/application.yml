@@ -16,6 +16,8 @@ mybatis-plus:
     id-type: 2
 # mysql
 spring:
+  main:
+      allow-bean-definition-overriding: true
   datasource:
     #url: jdbc:mysql://127.0.0.1:3306/orangeJuice?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
     jdbc-url: jdbc:mysql://127.0.0.1:3306/orangeJuice?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
@@ -33,3 +35,10 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: select 1
+
+# oauth2 clientId配置
+security:
+  oauth2:
+    client:
+      clientId: tba
+      clientSecret: tbaSecret

@@ -21,5 +21,14 @@ spring:
     username: orange_juice
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-
+    type: com.zaxxer.hikari.HikariDataSource
+    # 使用hikari连接池。https://www.funtl.com/zh/spring-security-oauth2/基于-JDBC-存储令牌.html
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select 1

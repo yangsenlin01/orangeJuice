@@ -67,7 +67,7 @@ public class SwaggerConfig {
      */
     private List<ApiKey> securitySchemes() {
         return newArrayList(
-                new ApiKey("请求token", "Authorization", "header"));
+                new ApiKey("Authorization", "Authorization", "header"));
     }
 
     private List<SecurityContext> securityContexts() {

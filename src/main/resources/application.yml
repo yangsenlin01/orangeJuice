@@ -42,3 +42,9 @@ security:
     client:
       clientId: tba
       clientSecret: tbaSecret
+
+# 输出sql log
+logging:
+  level:
+    com.theboyaply.orangeJuice.test.mapper: debug
+    com.theboyaply.orangeJuice.admin.mapper: debug

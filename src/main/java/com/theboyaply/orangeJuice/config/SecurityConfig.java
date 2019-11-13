@@ -21,6 +21,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         // 放开不需要校验的路径
-        web.ignoring().antMatchers("/test/**");
+        web.ignoring()
+                .antMatchers("/test/**")
+                // 放开swagger2拦截
+                .antMatchers("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
     }
 }

@@ -5,6 +5,9 @@ import com.theboyaply.orangeJuice.admin.domain.TbUser;
 import com.theboyaply.orangeJuice.admin.dto.UserDTO;
 import com.theboyaply.orangeJuice.admin.service.TbUserService;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
+import com.theboyaply.orangeJuice.config.SwaggerConfig;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,7 @@ import java.util.List;
  * @description
  */
 
+@Api(tags = SwaggerConfig.ADMIN_USER)
 @RestController
 @RequestMapping("/admin/user")
 public class UserController {
@@ -31,8 +35,10 @@ public class UserController {
     private MapperFacade mapperFacade;
 
     @GetMapping
+    @ApiOperation(value = "查询所有用户")
     public ResponseResult listUser() {
         List<TbUser> tbUserList = tbUserService.selectList(new EntityWrapper<>());
         return ResponseResult.ok(mapperFacade.mapAsList(tbUserList, UserDTO.class));
     }
+
 }

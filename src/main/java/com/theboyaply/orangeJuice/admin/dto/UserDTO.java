@@ -29,7 +29,9 @@ public class UserDTO {
     @ApiModelProperty(value = "邮件")
     private String email;
 
+    @ApiModelProperty(value = "创建时间")
     private ZonedDateTime created;
 
+    @ApiModelProperty(value = "更新时间")
     private ZonedDateTime updated;
 }

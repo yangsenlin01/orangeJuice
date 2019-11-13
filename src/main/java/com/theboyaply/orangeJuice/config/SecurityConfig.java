@@ -22,8 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         // 放开不需要校验的路径
         web.ignoring()
-                .antMatchers("/test/**")
-                // 放开swagger2拦截
-                .antMatchers("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+                // 放开错误提示
+                .antMatchers("/error/**")
+                // 放开swagger2
+                .antMatchers("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
+                // 以下是业务公开请求API
+                .antMatchers("/test/**");
     }
 }

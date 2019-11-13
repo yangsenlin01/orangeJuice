@@ -1,9 +1,9 @@
 package com.theboyaply.orangeJuice.admin.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.admin.domain.TbUser;
+import com.theboyaply.orangeJuice.admin.domain.SysUser;
 import com.theboyaply.orangeJuice.admin.dto.UserDTO;
-import com.theboyaply.orangeJuice.admin.service.TbUserService;
+import com.theboyaply.orangeJuice.admin.service.SysUserService;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.config.SwaggerConfig;
 import io.swagger.annotations.Api;
@@ -29,7 +29,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private TbUserService tbUserService;
+    private SysUserService sysUserService;
 
     @Autowired
     private MapperFacade mapperFacade;
@@ -37,8 +37,8 @@ public class UserController {
     @GetMapping
     @ApiOperation(value = "查询所有用户")
     public ResponseResult listUser() {
-        List<TbUser> tbUserList = tbUserService.selectList(new EntityWrapper<>());
-        return ResponseResult.ok(mapperFacade.mapAsList(tbUserList, UserDTO.class));
+        List<SysUser> sysUserList = sysUserService.selectList(new EntityWrapper<>());
+        return ResponseResult.ok(mapperFacade.mapAsList(sysUserList, UserDTO.class));
     }
 
 }

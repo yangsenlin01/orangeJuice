@@ -22,4 +22,21 @@
         <comment>初始化RBAC角色控制模型相关表</comment>
         <sqlFile path="classpath:db.liquibase/sql/rbac.sql" encoding="UTF-8"/>
     </changeSet>
+
+    <changeSet id="oj20191113001" author="tba">
+        <createTable tableName="sys_company" remarks="系统公司">
+            <column name="id" type="bigint" remarks="主键ID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_code" type="varchar(255)" remarks="公司编码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_name" type="varchar(255)" remarks="公司名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_desc" type="varchar(2000)" remarks="公司简介"/>
+            <column name="company_area" type="varchar(500)" remarks="公司地点"/>
+            <column name="company_image" type="varchar(255)" remarks="图片地址"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

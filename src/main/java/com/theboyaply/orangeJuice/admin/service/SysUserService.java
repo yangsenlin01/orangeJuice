@@ -1,8 +1,8 @@
 package com.theboyaply.orangeJuice.admin.service;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.theboyaply.orangeJuice.admin.domain.TbUser;
-import com.theboyaply.orangeJuice.admin.mapper.TbUserMapper;
+import com.theboyaply.orangeJuice.admin.domain.SysUser;
+import com.theboyaply.orangeJuice.admin.mapper.SysUserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +15,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class TbUserService extends ServiceImpl<TbUserMapper, TbUser> {
+public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
 }

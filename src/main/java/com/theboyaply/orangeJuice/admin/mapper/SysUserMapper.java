@@ -1,7 +1,7 @@
 package com.theboyaply.orangeJuice.admin.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.theboyaply.orangeJuice.admin.domain.TbUser;
+import com.theboyaply.orangeJuice.admin.domain.SysUser;
 
 /**
  * @author theboyaply
@@ -9,5 +9,5 @@ import com.theboyaply.orangeJuice.admin.domain.TbUser;
  * @Date 2019-11-12
  * @description
  */
-public interface TbUserMapper extends BaseMapper<TbUser> {
+public interface SysUserMapper extends BaseMapper<SysUser> {
 }

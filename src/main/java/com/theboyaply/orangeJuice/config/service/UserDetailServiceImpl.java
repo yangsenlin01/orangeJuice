@@ -1,8 +1,8 @@
 package com.theboyaply.orangeJuice.config.service;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.admin.domain.TbUser;
-import com.theboyaply.orangeJuice.admin.service.TbUserService;
+import com.theboyaply.orangeJuice.admin.domain.SysUser;
+import com.theboyaply.orangeJuice.admin.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -25,16 +25,16 @@ import java.util.List;
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
-    private TbUserService tbUserService;
+    private SysUserService sysUserService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        TbUser tbUser = tbUserService.selectOne(new EntityWrapper<TbUser>()
+        SysUser sysUser = sysUserService.selectOne(new EntityWrapper<SysUser>()
                 .eq("username", username));
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
-        if (tbUser == null) {
+        if (sysUser == null) {
             throw new UsernameNotFoundException("账号密码错误");
         }
-        return new User(tbUser.getUsername(), tbUser.getPassword(), grantedAuthorityList);
+        return new User(sysUser.getUsername(), sysUser.getPassword(), grantedAuthorityList);
     }
 }

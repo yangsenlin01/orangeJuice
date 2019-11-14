@@ -29,15 +29,10 @@ public class FontsSysCompanyController {
     @Autowired
     private SysCompanyService sysCompanyService;
 
-    @ApiOperation("获取公司信息")
+    @ApiOperation("获取公司及其图片")
     @GetMapping
-    public ResponseResult getCompany() {
-        List<SysCompany> sysCompanies = sysCompanyService.selectList(new EntityWrapper<>());
-        if (sysCompanies.size() > 0) {
-            return ResponseResult.ok(sysCompanies.get(0));
-        } else {
-            return ResponseResult.ok(new ArrayList<>());
-        }
+    public ResponseResult listCompanyAndImages() {
+        return ResponseResult.ok(sysCompanyService.listCompanyAndImages());
     }
 
 }

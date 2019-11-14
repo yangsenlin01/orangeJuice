@@ -27,7 +27,7 @@ public class FileUtil {
      * @param path               文件路径
      * @param isContainsFileName 路径是否包含文件名
      * @param multipartFile      文件
-     * @return 文件的物理路径
+     * @return 文件的物理存放路径
      */
     public static String uploadFile(String path, boolean isContainsFileName, MultipartFile multipartFile) {
         if (StringUtils.isEmpty(path) || multipartFile == null || multipartFile.isEmpty()) {
@@ -68,5 +68,20 @@ public class FileUtil {
             log.info(e.toString());
         }
         return filePath + fileName;
+    }
+
+    /**
+     * 根据路径删除文件，不能删除目录
+     *
+     * @param filePath
+     */
+    public static void deleteFile(String filePath) {
+        if (StringUtils.isEmpty(filePath)) {
+            return;
+        }
+        File file = new File(filePath);
+        if (file.exists() && file.isFile()) {
+            file.delete();
+        }
     }
 }

@@ -14,6 +14,8 @@ mybatis-plus:
     cache-enabled: false
   global-config:
     id-type: 2
+  # 自定义枚举包
+  type-enums-package: com.theboyaply.orangeJuice.**.enums
 # mysql
 spring:
   servlet:

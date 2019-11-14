@@ -21,4 +21,9 @@ public class OrangeJuiceProperties {
      */
     private String filePath;
 
+    /**
+     * nginx代理路径
+     */
+    private String fileUrlPath;
+
 }

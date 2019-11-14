@@ -39,4 +39,24 @@
             <column name="company_area" type="varchar(500)" remarks="公司地点"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="oj20191114001" author="tba">
+        <comment>创建文件表</comment>
+        <createTable tableName="sys_file" remarks="系统文件">
+            <column name="id" type="bigint" remarks="主键ID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sys_file"/>
+            </column>
+            <column name="biz_id" type="bigint" remarks="业务ID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="biz_type" type="varchar(50)" remarks="业务类型">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_name" type="varchar(255)" remarks="文件名"/>
+            <column name="file_url" type="varchar(500)" remarks="文件访问路径"/>
+            <column name="file_path" type="varchar(500)" remarks="文件存放路径"/>
+            <column name="file_type" type="varchar(50)" remarks="文件类型(后缀)"/>
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="上传时间"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

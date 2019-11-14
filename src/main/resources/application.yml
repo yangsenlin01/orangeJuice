@@ -13,6 +13,7 @@ mybatis-plus:
     # 关闭缓存
     cache-enabled: false
   global-config:
+    # 全局主键策略：分布式ID
     id-type: 2
   # 自定义枚举包
   type-enums-package: com.theboyaply.orangeJuice.**.enums

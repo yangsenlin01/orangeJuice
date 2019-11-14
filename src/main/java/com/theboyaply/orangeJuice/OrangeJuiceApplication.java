@@ -1,16 +1,18 @@
 package com.theboyaply.orangeJuice;
 
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
-import ma.glasnost.orika.impl.MapperFacadeImpl;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
@@ -50,5 +52,18 @@ public class OrangeJuiceApplication {
     @Bean
     public MapperFacade mapperFacade() {
         return new DefaultMapperFactory.Builder().build().getMapperFacade();
+    }
+
+    /**
+     * 自定义序列化，调用接口返回结果时，将Long类型转为String类型，避免精度丢失
+     * (Swagger显示Long类型会丢失后两位精度，即后两位数字被0替换)
+     *
+     * @return
+     */
+    @Bean("jackson2ObjectMapperBuilderCustomizer")
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
+        Jackson2ObjectMapperBuilderCustomizer customizer = jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.serializerByType(Long.class, ToStringSerializer.instance)
+                .serializerByType(Long.TYPE, ToStringSerializer.instance);
+        return customizer;
     }
 }

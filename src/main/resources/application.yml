@@ -56,7 +56,9 @@ logging:
   level:
     com.theboyaply.orangeJuice.test.mapper: debug
     com.theboyaply.orangeJuice.admin.mapper: debug
+    com.theboyaply.orangeJuice.fonts.mapper: debug
 
 # 自定义配置
 oj:
   file-path: D:/myResource/securityFile/images/
+  file-url-path: http://localhost:80/images/

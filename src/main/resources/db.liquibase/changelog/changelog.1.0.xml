@@ -10,7 +10,7 @@
     <changeSet id="oj20191108001" author="tba">
         <createTable tableName="test">
             <column name="id" type="bigint" remarks="主键ID">
-                <constraints nullable="false"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_test"/>
             </column>
             <column name="test_name" type="varchar(255)" remarks="测试名称"/>
             <column name="test_number" type="int" remarks="测试数字"/>
@@ -26,7 +26,7 @@
     <changeSet id="oj20191113001" author="tba">
         <createTable tableName="sys_company" remarks="系统公司">
             <column name="id" type="bigint" remarks="主键ID">
-                <constraints nullable="false"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sys_company"/>
             </column>
             <column name="company_code" type="varchar(255)" remarks="公司编码">
                 <constraints nullable="false"/>

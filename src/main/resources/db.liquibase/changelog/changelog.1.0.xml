@@ -24,6 +24,7 @@
     </changeSet>
 
     <changeSet id="oj20191113001" author="tba">
+        <comment>创建公司表</comment>
         <createTable tableName="sys_company" remarks="系统公司">
             <column name="id" type="bigint" remarks="主键ID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sys_company"/>
@@ -36,7 +37,6 @@
             </column>
             <column name="company_desc" type="varchar(2000)" remarks="公司简介"/>
             <column name="company_area" type="varchar(500)" remarks="公司地点"/>
-            <column name="company_image" type="varchar(255)" remarks="图片地址"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

@@ -1,6 +1,7 @@
 package com.theboyaply.orangeJuice.fonts.domain;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -19,6 +20,7 @@ public class SysCompany {
 
     @ApiModelProperty(value = "主键ID")
     @TableField("id")
+    @TableId
     private Long id;
 
     @ApiModelProperty(value = "公司编码")
@@ -38,7 +40,7 @@ public class SysCompany {
     private String companyArea;
 
     @ApiModelProperty(value = "图片地址")
-    @TableField("company_image")
+    @TableField(exist = false)
     private String companyImage;
 
 }

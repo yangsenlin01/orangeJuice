@@ -31,10 +31,13 @@ import static com.google.common.collect.Lists.newArrayList;
 public class SwaggerConfig {
 
     public static final String TEST = "TEST";
+    public static final String COMMON = "COMMON";
     public static final String ADMIN_USER = "ADMIN_USER";
+    public static final String COMPANY = "COMPANY";
 
     private static final Predicate<RequestHandler> TEST_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.test.controller");
     private static final Predicate<RequestHandler> ADMIN_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.admin.controller");
+    private static final Predicate<RequestHandler> FONTS_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.fonts.controller");
 
     @Bean
     public Docket api() {
@@ -42,7 +45,7 @@ public class SwaggerConfig {
                 .select()
                 // 需要扫描的api的controller包
                 // .apis(RequestHandlerSelectors.any())
-                .apis(Predicates.or(TEST_SELECTOR, ADMIN_SELECTOR))
+                .apis(Predicates.or(TEST_SELECTOR, FONTS_SELECTOR, ADMIN_SELECTOR))
                 // 需要扫描api的请求路径
                 // .paths(PathSelectors.ant("/test/*"))
                 .paths(PathSelectors.any())
@@ -53,7 +56,9 @@ public class SwaggerConfig {
                 .securityContexts(securityContexts())
                 .apiInfo(apiInfo())
                 .tags(new Tag(TEST, "测试Tag"))
-                .tags(new Tag(ADMIN_USER, "系统用户"));
+                .tags(new Tag(COMMON, "通用Controller"))
+                .tags(new Tag(ADMIN_USER, "系统用户"))
+                .tags(new Tag(COMPANY, "系统公司"));
     }
 
     /**

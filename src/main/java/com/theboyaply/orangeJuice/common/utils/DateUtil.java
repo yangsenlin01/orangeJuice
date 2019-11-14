@@ -19,6 +19,8 @@ public final class DateUtil {
 
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+    private DateUtil() {}
+
     /**
      * String(yyyy-MM-dd)转Date
      *

@@ -16,6 +16,12 @@ mybatis-plus:
     id-type: 2
 # mysql
 spring:
+  servlet:
+    multipart:
+      # 上传文件的最大值
+      max-file-size: 1MB
+      # 请求携带参数的最大值
+      max-request-size: 2MB
   main:
       allow-bean-definition-overriding: true
   datasource:
@@ -48,3 +54,7 @@ logging:
   level:
     com.theboyaply.orangeJuice.test.mapper: debug
     com.theboyaply.orangeJuice.admin.mapper: debug
+
+# 自定义配置
+oj:
+  file-path: D:/myResource/securityFile/images/

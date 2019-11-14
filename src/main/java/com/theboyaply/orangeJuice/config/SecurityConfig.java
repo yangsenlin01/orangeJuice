@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 放开swagger2
                 .antMatchers("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
                 // 以下是业务公开请求API
-                .antMatchers("/test/**");
+                .antMatchers("/test/**")
+                .antMatchers("/fonts/**");
     }
 }

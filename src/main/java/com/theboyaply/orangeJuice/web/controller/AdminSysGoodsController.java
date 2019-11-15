@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.config.SwaggerConfig;
 import com.theboyaply.orangeJuice.web.domain.SysGoods;
+import com.theboyaply.orangeJuice.web.domain.SysGoodsType;
 import com.theboyaply.orangeJuice.web.service.SysGoodsService;
+import com.theboyaply.orangeJuice.web.service.SysGoodsTypeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -30,6 +32,9 @@ public class AdminSysGoodsController {
     @Autowired
     private SysGoodsService sysGoodsService;
 
+    @Autowired
+    private SysGoodsTypeService sysGoodsTypeService;
+
     @ApiOperation("新增/更新产品")
     @PostMapping
     public ResponseResult insertOrUpdate(@ApiParam("产品名称") @RequestBody SysGoods sysGoods) {
@@ -37,6 +42,11 @@ public class AdminSysGoodsController {
                 || StringUtils.isEmpty(sysGoods.getGoodsCode())
                 || StringUtils.isEmpty(sysGoods.getGoodsTypeCode())) {
             return ResponseResult.ok(400, "产品名称或分类不能为空");
+        }
+        SysGoodsType sysGoodsType = sysGoodsTypeService.selectOne(new EntityWrapper<SysGoodsType>()
+                .eq("type_code", sysGoods.getGoodsTypeCode()));
+        if (sysGoodsType == null) {
+            return ResponseResult.ok(400, "产品分类编码不存在：" + sysGoods.getGoodsTypeCode());
         }
         SysGoods alreadyData = sysGoodsService.selectOne(new EntityWrapper<SysGoods>()
                 .eq("goods_code", sysGoods.getGoodsCode()));

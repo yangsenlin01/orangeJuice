@@ -32,6 +32,9 @@ spring:
     jdbc-url: jdbc:mysql://127.0.0.1:3306/orangeJuice?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
     username: orange_juice
     password: 123456
+    # jdbc-url: jdbc:mysql://localhost:3307/orangeJuice?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
+    # username: root
+    # password: orange_juice
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     # 使用hikari连接池。https://www.funtl.com/zh/spring-security-oauth2/基于-JDBC-存储令牌.html
@@ -55,10 +58,13 @@ security:
 # 输出sql log
 logging:
   level:
-    com.theboyaply.orangeJuice.test.mapper: debug
-    com.theboyaply.orangeJuice.web.mapper: debug
+    #com.theboyaply.orangeJuice.test.mapper: debug
+    #com.theboyaply.orangeJuice.web.mapper: debug
+    com.theboyaply.orangeJuice: debug
 
 # 自定义配置
 oj:
   file-path: D:/myResource/securityFile/images/
   file-url-path: http://localhost:80/images/
+  # file-path: /dockerDir/orangeJuice/images
+  # file-url-path: http://106.15.202.33:8081/images/

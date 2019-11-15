@@ -1,7 +1,7 @@
-package com.theboyaply.orangeJuice.admin.mapper;
+package com.theboyaply.orangeJuice.web.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.theboyaply.orangeJuice.admin.domain.SysUser;
+import com.theboyaply.orangeJuice.web.domain.SysUser;
 
 /**
  * @author theboyaply

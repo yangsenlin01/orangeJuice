@@ -1,19 +1,14 @@
-package com.theboyaply.orangeJuice.fonts.controller;
+package com.theboyaply.orangeJuice.web.controller;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.config.SwaggerConfig;
-import com.theboyaply.orangeJuice.fonts.domain.SysCompany;
-import com.theboyaply.orangeJuice.fonts.service.SysCompanyService;
+import com.theboyaply.orangeJuice.web.service.SysCompanyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 系统公司(SysCompany)表控制层

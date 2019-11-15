@@ -1,9 +1,9 @@
-package com.theboyaply.orangeJuice.admin.controller;
+package com.theboyaply.orangeJuice.web.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.admin.domain.SysUser;
-import com.theboyaply.orangeJuice.admin.dto.UserDTO;
-import com.theboyaply.orangeJuice.admin.service.SysUserService;
+import com.theboyaply.orangeJuice.web.domain.SysUser;
+import com.theboyaply.orangeJuice.web.dto.UserDTO;
+import com.theboyaply.orangeJuice.web.service.SysUserService;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.config.SwaggerConfig;
 import io.swagger.annotations.Api;

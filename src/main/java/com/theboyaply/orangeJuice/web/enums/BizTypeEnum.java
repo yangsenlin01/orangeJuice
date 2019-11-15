@@ -1,4 +1,4 @@
-package com.theboyaply.orangeJuice.admin.enums;
+package com.theboyaply.orangeJuice.web.enums;
 
 import com.baomidou.mybatisplus.enums.IEnum;
 import com.fasterxml.jackson.annotation.JsonValue;

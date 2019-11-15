@@ -1,8 +1,8 @@
 package com.theboyaply.orangeJuice.config.service;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.admin.domain.SysUser;
-import com.theboyaply.orangeJuice.admin.service.SysUserService;
+import com.theboyaply.orangeJuice.web.domain.SysUser;
+import com.theboyaply.orangeJuice.web.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

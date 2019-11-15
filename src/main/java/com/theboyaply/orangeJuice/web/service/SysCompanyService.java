@@ -1,12 +1,11 @@
-package com.theboyaply.orangeJuice.fonts.service;
+package com.theboyaply.orangeJuice.web.service;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.theboyaply.orangeJuice.fonts.domain.SysCompany;
-import com.theboyaply.orangeJuice.fonts.mapper.SysCompanyMapper;
+import com.theboyaply.orangeJuice.web.domain.SysCompany;
+import com.theboyaply.orangeJuice.web.mapper.SysCompanyMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

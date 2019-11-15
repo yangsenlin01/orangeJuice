@@ -1,7 +1,7 @@
-package com.theboyaply.orangeJuice.fonts.mapper;
+package com.theboyaply.orangeJuice.web.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.theboyaply.orangeJuice.fonts.domain.SysCompany;
+import com.theboyaply.orangeJuice.web.domain.SysCompany;
 
 import java.util.List;
 

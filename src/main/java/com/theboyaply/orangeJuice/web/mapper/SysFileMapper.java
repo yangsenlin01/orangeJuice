@@ -1,7 +1,7 @@
-package com.theboyaply.orangeJuice.admin.mapper;
+package com.theboyaply.orangeJuice.web.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.theboyaply.orangeJuice.admin.domain.SysFile;
+import com.theboyaply.orangeJuice.web.domain.SysFile;
 
 /**
  * 系统文件(SysFile)表数据库访问层

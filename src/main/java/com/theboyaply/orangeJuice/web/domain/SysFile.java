@@ -1,9 +1,9 @@
-package com.theboyaply.orangeJuice.admin.domain;
+package com.theboyaply.orangeJuice.web.domain;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.theboyaply.orangeJuice.admin.enums.BizTypeEnum;
+import com.theboyaply.orangeJuice.web.enums.BizTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

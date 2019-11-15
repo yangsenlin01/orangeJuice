@@ -1,4 +1,4 @@
-package com.theboyaply.orangeJuice.admin.domain;
+package com.theboyaply.orangeJuice.web.domain;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;

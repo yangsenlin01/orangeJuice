@@ -36,8 +36,7 @@ public class SwaggerConfig {
     public static final String COMPANY = "COMPANY";
 
     private static final Predicate<RequestHandler> TEST_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.test.controller");
-    private static final Predicate<RequestHandler> ADMIN_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.admin.controller");
-    private static final Predicate<RequestHandler> FONTS_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.fonts.controller");
+    private static final Predicate<RequestHandler> WEB_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.web.controller");
 
     @Bean
     public Docket api() {
@@ -45,7 +44,7 @@ public class SwaggerConfig {
                 .select()
                 // 需要扫描的api的controller包
                 // .apis(RequestHandlerSelectors.any())
-                .apis(Predicates.or(TEST_SELECTOR, FONTS_SELECTOR, ADMIN_SELECTOR))
+                .apis(Predicates.or(TEST_SELECTOR, WEB_SELECTOR))
                 // 需要扫描api的请求路径
                 // .paths(PathSelectors.ant("/test/*"))
                 .paths(PathSelectors.any())

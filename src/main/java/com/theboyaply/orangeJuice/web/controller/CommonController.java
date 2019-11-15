@@ -1,9 +1,9 @@
-package com.theboyaply.orangeJuice.admin.controller;
+package com.theboyaply.orangeJuice.web.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.admin.domain.SysFile;
-import com.theboyaply.orangeJuice.admin.enums.BizTypeEnum;
-import com.theboyaply.orangeJuice.admin.service.SysFileService;
+import com.theboyaply.orangeJuice.web.domain.SysFile;
+import com.theboyaply.orangeJuice.web.enums.BizTypeEnum;
+import com.theboyaply.orangeJuice.web.service.SysFileService;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.common.utils.FileUtil;
 import com.theboyaply.orangeJuice.config.OrangeJuiceProperties;

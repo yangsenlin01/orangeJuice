@@ -1,4 +1,4 @@
-package com.theboyaply.orangeJuice.admin.dto;
+package com.theboyaply.orangeJuice.web.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

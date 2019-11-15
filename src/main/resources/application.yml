@@ -56,8 +56,7 @@ security:
 logging:
   level:
     com.theboyaply.orangeJuice.test.mapper: debug
-    com.theboyaply.orangeJuice.admin.mapper: debug
-    com.theboyaply.orangeJuice.fonts.mapper: debug
+    com.theboyaply.orangeJuice.web.mapper: debug
 
 # 自定义配置
 oj:

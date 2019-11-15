@@ -1,9 +1,9 @@
-package com.theboyaply.orangeJuice.admin.controller;
+package com.theboyaply.orangeJuice.web.controller;
 
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.config.SwaggerConfig;
-import com.theboyaply.orangeJuice.fonts.domain.SysCompany;
-import com.theboyaply.orangeJuice.fonts.service.SysCompanyService;
+import com.theboyaply.orangeJuice.web.domain.SysCompany;
+import com.theboyaply.orangeJuice.web.service.SysCompanyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

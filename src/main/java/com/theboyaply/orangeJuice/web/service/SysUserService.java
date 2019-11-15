@@ -1,8 +1,8 @@
-package com.theboyaply.orangeJuice.admin.service;
+package com.theboyaply.orangeJuice.web.service;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.theboyaply.orangeJuice.admin.domain.SysUser;
-import com.theboyaply.orangeJuice.admin.mapper.SysUserMapper;
+import com.theboyaply.orangeJuice.web.domain.SysUser;
+import com.theboyaply.orangeJuice.web.mapper.SysUserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

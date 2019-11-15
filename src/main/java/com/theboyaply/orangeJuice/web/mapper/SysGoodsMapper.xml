@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.theboyaply.orangeJuice.web.mapper.SysGoodsMapper">
+    <select id="listGoods" resultType="com.theboyaply.orangeJuice.web.domain.SysGoods">
+        SELECT
+        goods.*,
+        f.file_url AS goodsImages
+        FROM sys_goods goods
+        LEFT JOIN sys_file f ON goods.id = f.biz_id AND 'goods' = f.biz_type
+        <where>
+            <if test="goodsName != null and goodsName != ''">
+                goods.goods_name LIKE concat('%', concat(#{goodsName}, '%'))
+            </if>
+            <if test="goodsDesc != null and goodsDesc != ''">
+                goods.goods_desc LIKE concat('%', concat(#{goodsDesc}, '%'))
+            </if>
+            <if test="goodsTypeCode != null and goodsTypeCode != ''">
+                goods.goods_type_code = #{goodsTypeCode}
+            </if>
+        </where>
+        ORDER BY goods.created_date DESC
+    </select>
+</mapper>

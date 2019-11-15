@@ -34,6 +34,8 @@ public class SwaggerConfig {
     public static final String COMMON = "COMMON";
     public static final String ADMIN_USER = "ADMIN_USER";
     public static final String COMPANY = "COMPANY";
+    public static final String GOODS = "GOODS";
+    public static final String GOODS_TYPE = "GOODS_TYPE";
 
     private static final Predicate<RequestHandler> TEST_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.test.controller");
     private static final Predicate<RequestHandler> WEB_SELECTOR = RequestHandlerSelectors.basePackage("com.theboyaply.orangeJuice.web.controller");
@@ -57,6 +59,8 @@ public class SwaggerConfig {
                 .tags(new Tag(TEST, "测试Tag"))
                 .tags(new Tag(COMMON, "通用Controller"))
                 .tags(new Tag(ADMIN_USER, "系统用户"))
+                .tags(new Tag(GOODS, "产品"))
+                .tags(new Tag(GOODS_TYPE, "产品分类"))
                 .tags(new Tag(COMPANY, "系统公司"));
     }
 

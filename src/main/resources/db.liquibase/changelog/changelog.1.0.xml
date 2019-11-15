@@ -59,4 +59,40 @@
             <column name="created_date" type="timestamp" defaultValue="${now}" remarks="上传时间"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="oj20191115001" author="tba">
+        <comment>创建产品表</comment>
+        <createTable tableName="sys_goods" remarks="产品表">
+            <column name="id" type="bigint" remarks="主键ID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sys_goods"/>
+            </column>
+            <column name="goods_name" type="varchar(255)" remarks="产品名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="goods_code" type="varchar(50)" remarks="产品编码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="goods_type_code" type="varchar(50)" remarks="产品类型">
+                <constraints nullable="false"/>
+            </column>
+            <column name="goods_desc" type="varchar(1000)" remarks="产品描述"/>
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="创建时间"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="oj20191115002" author="tba">
+        <comment>创建产品类型表</comment>
+        <createTable tableName="sys_goods_type" remarks="产品分类表">
+            <column name="id" type="bigint" remarks="主键ID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sys_goods_type"/>
+            </column>
+            <column name="type_code" type="varchar(50)" remarks="分类编码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_name" type="varchar(255)" remarks="分类名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="创建时间"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

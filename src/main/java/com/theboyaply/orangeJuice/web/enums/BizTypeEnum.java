@@ -17,7 +17,12 @@ public enum BizTypeEnum implements IEnum {
     /**
      * 公司
      */
-    COMPANY("company", "公司");
+    COMPANY("company", "公司"),
+
+    /**
+     * 产品
+     */
+    GOODS("goods", "产品");
 
     /**
      * 业务类型

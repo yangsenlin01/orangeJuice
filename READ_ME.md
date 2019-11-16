@@ -14,4 +14,4 @@
 * 使用如下命令构建镜像(-t 是为构建的镜像打标签,别忘了最后的 "." )
 * docker build -t oj_server:1.0 .
 * 使用如下命令启动(使用--net=host，可以直接使用localhost:3307连接mysql)
-* docker run --net=host -d -p 8080:8080 -v /dockerDir/orangeJuice/images:/dockerDir/orangeJuice/images --name oj_server oj_server:1.0
+* docker run --net=host -d -p 8080:8080 -v /dockerDir/orangeJuice/images/:/dockerDir/orangeJuice/images/ --name oj_server oj_server:1.0

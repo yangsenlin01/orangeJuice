@@ -66,5 +66,5 @@ logging:
 oj:
   file-path: D:/myResource/securityFile/images/
   file-url-path: http://localhost:80/images/
-  # file-path: /dockerDir/orangeJuice/images
+  # file-path: /dockerDir/orangeJuice/images/
   # file-url-path: http://106.15.202.33:8081/images/

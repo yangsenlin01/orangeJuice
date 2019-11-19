@@ -38,6 +38,9 @@
             <column name="company_desc" type="varchar(2000)" remarks="公司简介"/>
             <column name="company_area" type="varchar(500)" remarks="公司地点"/>
         </createTable>
+        <sql>
+            insert into sys_company(id, company_code, company_name, company_desc, company_area) values(1, 'OrangeJuice', '橙汁公司', '专门介绍橙汁的公司', '中国')
+        </sql>
     </changeSet>
 
     <changeSet id="oj20191114001" author="tba">

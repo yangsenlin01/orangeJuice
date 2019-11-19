@@ -29,11 +29,11 @@ public class AdminSysCompanyController {
     @Autowired
     private SysCompanyService sysCompanyService;
 
-    @ApiOperation(value = "新增公司")
+    @ApiOperation(value = "更改公司信息")
     @PostMapping
-    public ResponseResult addCompany(@ApiParam("公司信息") @RequestBody SysCompany sysCompany) {
-        if (sysCompany.getId() != null) {
-            return ResponseResult.ok(400, "不能对已存在的公司进行新增");
+    public ResponseResult updateCompany(@ApiParam("公司信息") @RequestBody SysCompany sysCompany) {
+        if (sysCompany.getId() == null) {
+            return ResponseResult.ok(400, "ID不能为空");
         }
         if (StringUtils.isEmpty(sysCompany.getCompanyCode())) {
             return ResponseResult.ok(400, "公司编码不能为空");
@@ -41,7 +41,10 @@ public class AdminSysCompanyController {
         if (StringUtils.isEmpty(sysCompany.getCompanyName())) {
             return ResponseResult.ok(400, "公司名称不能为空");
         }
-        sysCompanyService.insert(sysCompany);
+        if (sysCompanyService.selectById(sysCompany.getId()) == null) {
+            return ResponseResult.ok(400, "未根据ID找到值");
+        }
+        sysCompanyService.updateById(sysCompany);
         return ResponseResult.ok(sysCompany);
     }
 

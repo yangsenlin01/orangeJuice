@@ -1,13 +1,13 @@
 package com.theboyaply.orangeJuice.web.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.theboyaply.orangeJuice.web.domain.SysFile;
-import com.theboyaply.orangeJuice.web.enums.BizTypeEnum;
-import com.theboyaply.orangeJuice.web.service.SysFileService;
 import com.theboyaply.orangeJuice.common.dto.ResponseResult;
 import com.theboyaply.orangeJuice.common.utils.FileUtil;
 import com.theboyaply.orangeJuice.config.OrangeJuiceProperties;
 import com.theboyaply.orangeJuice.config.SwaggerConfig;
+import com.theboyaply.orangeJuice.web.domain.SysFile;
+import com.theboyaply.orangeJuice.web.enums.BizTypeEnum;
+import com.theboyaply.orangeJuice.web.service.SysFileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -57,6 +57,9 @@ public class CommonController {
         String fileUrl = null;
 
         if (filePath != null) {
+            if (filePath.contains("error")) {
+                return ResponseResult.ok(400, filePath.substring(filePath.indexOf(":") + 1));
+            }
             fileUrl = orangeJuiceProperties.getFileUrlPath() + filePath.substring(filePath.lastIndexOf("/") + 1);
 
             // 文件原始名称
@@ -85,7 +88,7 @@ public class CommonController {
 
             sysFileService.insertOrUpdate(sysFile);
         }
-        return ResponseResult.ok("上传成功");
+        return ResponseResult.ok(200, "上传成功", fileUrl);
     }
 
 }

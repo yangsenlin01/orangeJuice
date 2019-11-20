@@ -17,9 +17,12 @@ import java.util.UUID;
  */
 public class FileUtil {
 
-    private static final  Logger log = LoggerFactory.getLogger(FileUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
-    private FileUtil() {}
+    private static final String FILE_SUFFIX_NAME = ".jpg|.png|.jpeg|.bmp|.gif";
+
+    private FileUtil() {
+    }
 
     /**
      * 上传文件
@@ -45,8 +48,13 @@ public class FileUtil {
         }
         // 文件原始名称
         String originalFileName = multipartFile.getOriginalFilename();
+        // 文件后缀
+        String originalFileSuffixName = originalFileName.substring(originalFileName.lastIndexOf("."));
+        if (!FILE_SUFFIX_NAME.contains(originalFileSuffixName)) {
+            return "error:只能上传指定格式的图片文件(" + FILE_SUFFIX_NAME + ")";
+        }
         // 添加文件后缀
-        fileName = fileName + originalFileName.substring(originalFileName.lastIndexOf("."));
+        fileName = fileName + originalFileSuffixName;
 
         // 文件夹不存在则创建
         File file = new File(filePath);

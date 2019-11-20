@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 系统公司(SysCompany)表控制层
@@ -21,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-11-14 10:08:15
  */
 
+@CrossOrigin
 @Api(tags = SwaggerConfig.COMPANY)
 @RestController("adminSysCompanyController")
 @RequestMapping("/admin/sysCompany")

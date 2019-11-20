@@ -10,13 +10,13 @@
         LEFT JOIN sys_file f ON goods.id = f.biz_id AND 'goods' = f.biz_type
         <where>
             <if test="goodsName != null and goodsName != ''">
-                goods.goods_name LIKE concat('%', concat(#{goodsName}, '%'))
+                AND goods.goods_name LIKE concat('%', concat(#{goodsName}, '%'))
             </if>
             <if test="goodsDesc != null and goodsDesc != ''">
-                goods.goods_desc LIKE concat('%', concat(#{goodsDesc}, '%'))
+                AND goods.goods_desc LIKE concat('%', concat(#{goodsDesc}, '%'))
             </if>
             <if test="goodsTypeCode != null and goodsTypeCode != ''">
-                goods.goods_type_code = #{goodsTypeCode}
+                AND goods.goods_type_code = #{goodsTypeCode}
             </if>
         </where>
         ORDER BY goods.created_date DESC

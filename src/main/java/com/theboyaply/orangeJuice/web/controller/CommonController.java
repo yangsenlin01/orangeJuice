@@ -22,7 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
  * @description 通用controller
  */
 
-@CrossOrigin
 @Api(tags = SwaggerConfig.COMMON)
 @RestController
 @RequestMapping("/admin/common")

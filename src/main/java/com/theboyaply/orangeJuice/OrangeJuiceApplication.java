@@ -13,6 +13,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.sql.DataSource;
 
@@ -64,5 +67,29 @@ public class OrangeJuiceApplication {
         Jackson2ObjectMapperBuilderCustomizer customizer = jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.serializerByType(Long.class, ToStringSerializer.instance)
                 .serializerByType(Long.TYPE, ToStringSerializer.instance);
         return customizer;
+    }
+
+    /**
+     * 配置全局跨域放行
+     *
+     * @return
+     */
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource baseSource = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        // 支持安全证书
+        corsConfiguration.setAllowCredentials(true);
+        // 允许任何域名使用
+        corsConfiguration.addAllowedOrigin("*");
+        // 允许任何头
+        corsConfiguration.addAllowedHeader("*");
+        // 允许任何方法（post、get等）
+        corsConfiguration.addAllowedMethod("*");
+        // 预检请求的有效期/秒
+        corsConfiguration.setMaxAge(3600L);
+        // 匹配放行接口(这里放行所有接口)
+        baseSource.registerCorsConfiguration("/**", corsConfiguration);
+        return new CorsFilter(baseSource);
     }
 }

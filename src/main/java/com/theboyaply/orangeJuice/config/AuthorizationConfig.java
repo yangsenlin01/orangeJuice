@@ -11,9 +11,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @description
  */
 
-@Configuration
+/*@Configuration
 @EnableAuthorizationServer
-@EnableResourceServer
+@EnableResourceServer*/
 public class AuthorizationConfig {
 
 }

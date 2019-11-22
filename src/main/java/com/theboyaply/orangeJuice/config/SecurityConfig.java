@@ -7,8 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-import org.springframework.web.cors.CorsUtils;
 
 /**
  * @author theboyaply
@@ -23,9 +21,9 @@ import org.springframework.web.cors.CorsUtils;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Override
+    /*@Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*
+        *//*
          * 1-->>
          * http.csrf();
          * ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.authorizeRequests();
@@ -35,9 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          * http.requestMatchers().antMatchers(HttpMethod.OPTIONS, "/oauth/token", "/rest/**", "/api/**", "/**")
          * .and()
          * .csrf().disable();
-         */
+         *//*
         http.cors().and().csrf().disable();
-    }
+    }*/
 
     @Override
     public void configure(WebSecurity web) {

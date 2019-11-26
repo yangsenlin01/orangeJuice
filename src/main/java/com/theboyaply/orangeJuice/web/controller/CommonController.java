@@ -72,7 +72,7 @@ public class CommonController {
                 sysFile = new SysFile();
                 sysFile.setBizId(bizId);
                 for (BizTypeEnum bizTypeEnum : BizTypeEnum.values()) {
-                    if (bizType.equals(bizTypeEnum.getType())) {
+                    if (bizType.equalsIgnoreCase(bizTypeEnum.getType())) {
                         sysFile.setBizType(bizTypeEnum);
                         break;
                     }

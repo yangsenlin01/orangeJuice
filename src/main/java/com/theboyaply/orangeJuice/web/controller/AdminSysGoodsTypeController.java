@@ -36,6 +36,9 @@ public class AdminSysGoodsTypeController {
                 || StringUtils.isEmpty(sysGoodsType.getTypeName())) {
             return ResponseResult.ok(400, "分类编码或名称不能为空");
         }
+        if (sysGoodsType.getEnable() == null) {
+            return ResponseResult.ok(400, "是否启用不能为空");
+        }
         SysGoodsType alreadyData = sysGoodsTypeService.selectOne(new EntityWrapper<SysGoodsType>()
                 .eq("type_code", sysGoodsType.getTypeCode()));
         if (alreadyData != null) {

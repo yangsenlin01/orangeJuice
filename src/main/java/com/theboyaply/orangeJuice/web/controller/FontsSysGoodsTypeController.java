@@ -35,10 +35,12 @@ public class FontsSysGoodsTypeController {
     @ApiOperation("获取所有分类")
     @GetMapping
     public ResponseResult listGoodsType(@ApiParam("分类编码") @RequestParam(value = "typeCode", required = false) String typeCode,
-                                        @ApiParam("分类名称") @RequestParam(value = "typeName", required = false) String typeName) {
+                                        @ApiParam("分类名称") @RequestParam(value = "typeName", required = false) String typeName,
+                                        @ApiParam("是否启用") @RequestParam(value = "enable", required = false) Boolean enable) {
         List<SysGoodsType> sysGoodsTypeList = sysGoodsTypeService.selectList(new EntityWrapper<SysGoodsType>()
                 .like(StringUtils.isNotEmpty(typeCode), "type_code", typeCode)
-                .like(StringUtils.isNotEmpty(typeName), "type_name", typeName));
+                .like(StringUtils.isNotEmpty(typeName), "type_name", typeName)
+                .eq(enable != null, "enable", enable));
         return ResponseResult.ok(sysGoodsTypeList);
     }
 

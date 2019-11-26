@@ -32,6 +32,10 @@ public class SysGoodsType {
     @TableField("type_name")
     private String typeName;
 
+    @ApiModelProperty(value = "是否启用")
+    @TableField("enable")
+    private Boolean enable;
+
     @ApiModelProperty(value = "创建时间")
     @TableField("created_date")
     private ZonedDateTime createdDate;

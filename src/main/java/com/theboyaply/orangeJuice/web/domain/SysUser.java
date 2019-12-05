@@ -31,4 +31,9 @@ public class SysUser {
     @TableField("email")
     private String email;
 
+    @TableField("created_date")
+    private String createdDate;
+
+    @TableField("updated_date")
+    private String updatedDate;
 }

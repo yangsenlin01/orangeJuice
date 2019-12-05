@@ -1,10 +1,13 @@
 package com.theboyaply.orangeJuice.config.service;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.theboyaply.orangeJuice.web.domain.SysPermission;
 import com.theboyaply.orangeJuice.web.domain.SysUser;
+import com.theboyaply.orangeJuice.web.service.SysPermissionService;
 import com.theboyaply.orangeJuice.web.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,6 +30,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private SysUserService sysUserService;
 
+    @Autowired
+    private SysPermissionService sysPermissionService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         SysUser sysUser = sysUserService.selectOne(new EntityWrapper<SysUser>()
@@ -35,6 +41,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
         if (sysUser == null) {
             throw new UsernameNotFoundException("账号密码错误");
         }
+        List<SysPermission> sysPermissionList = sysPermissionService.selectPermissionByUserId(sysUser.getId());
+        sysPermissionList.forEach(sysPermission -> {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(sysPermission.getEnname());
+            grantedAuthorityList.add(grantedAuthority);
+        });
         return new User(sysUser.getUsername(), sysUser.getPassword(), grantedAuthorityList);
     }
 }

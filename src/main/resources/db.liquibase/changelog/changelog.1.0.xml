@@ -23,6 +23,11 @@
         <sqlFile path="classpath:db.liquibase/sql/rbac.sql" encoding="UTF-8"/>
     </changeSet>
 
+    <changeSet id="oj20191112003" author="tba">
+        <comment>初始化oauth2相关表</comment>
+        <sqlFile path="classpath:db.liquibase/sql/oauth2.sql" encoding="UTF-8"/>
+    </changeSet>
+
     <changeSet id="oj20191113001" author="tba">
         <comment>创建公司表</comment>
         <createTable tableName="sys_company" remarks="系统公司">
